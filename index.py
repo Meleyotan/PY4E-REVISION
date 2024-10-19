@@ -117,7 +117,136 @@ print ("Done")
 
 # loop with break statement
 while True:
-    line = input ('>')
+    line = input ('loop with break statement>')
     if line == 'done':
         break
     print (line)
+
+#whenever # begins statement, don't print - a code for making sure comment statements doesn't print
+while True:
+    line = input("> ")
+    if line[0] == '#':
+        continue
+    if line == 'done':
+        break
+    print (line)
+print ('Done')
+
+friends = ['Meleyotan', 'Daniel', 'Oyeleke']
+for friend in friends:
+    print ("Merry Christmas, " + friend)
+print ('Done')
+    
+sets = [6,73,23,534,23,63,12,778,344]
+total = 0
+for itevar in sets:
+    total = total + itevar
+print (total)
+
+file_input = input("Enter file name: ")
+handle = open(file_input, 'r')
+
+for line in handle:
+    words = line.split()
+print (len(words))
+
+#print the largest number in this set [1,24,5,6,77,343,3,232,3,23,1,3,43,1,3]
+
+largest = None
+numbers = [1,24,5,6,77,343,3,232,3,23,1,3,43,1,3]
+for number in numbers:
+    if largest is None or number > largest:
+        largest = number
+    print ("In this loop:", largest, "is greater than ", number)
+print (largest, "is the largest")
+
+print (max(numbers))
+print (min(numbers))
+
+smallest = None
+numbers = [1,24,5,6,77,343,3,232,3,23,1,3,43,1,3]
+for number in numbers:
+    if smallest is None or number < smallest:
+        smallest = number
+    print ("In this loop:", smallest, "is lesser than ", number)
+print (smallest, "is the smallest")
+
+# Write a program which repeatedly reads numbers until the
+# user enters “done”. Once “done” is entered, print out the total, count,
+# and average of the numbers. If the user enters anything other than a
+# number, detect their mistake using try and except and print an error
+# message and skip to the next number. ***
+
+# Write another program that prompts for a list of numbers
+# as above and at the end prints out both the maximum and minimum of
+# the numbers instead of the average.
+
+total = 0
+count = 0
+largest = None
+smallest = None
+while True:
+    x = input ("What number? ")
+    if x == "done":
+        break
+    try:
+        x = float(x)
+        count = count + 1
+        total = total + x
+        if largest is None or x > largest:
+            largest = x
+        if smallest is None or x < smallest:
+            smallest = x 
+        print ("Count:", count, "Total: ", total, "Average: ", total/count, "Max: ", largest, "Min: ", smallest)
+    except:
+        print ("Error, please enter a number")
+
+#reverse a string
+test = "Meleyotan Oyeleke"
+n=1
+count = len(test)
+while n-1 < count:
+    print (test[count- (count+n)])
+    n = n + 1
+
+#split a string
+print (test[2:10])
+print (test[:])
+
+# count the number of "es" in a text
+count = 0
+for t in test:
+    if t == "e":
+        count = count + 1
+print ("Number of Es", count)
+
+#encapsulate the above block of code in a function
+def count_letter(text, letter):
+    count = 0
+    for t in text:
+        if t == letter:
+            count = count + 1
+    return "Number of As", count
+
+print(count_letter("the clown ran after the car and the car ran into the tent and the tent fell down on the clown and the car", "a"))
+
+#using the count method of string type
+print ("Melekyotafoaefw2wu2222222222wwwwwwwwwwwww23w3eeeeeeeeeeeeeeeeeeeeeeeeeeawe".count("w"))
+
+#format operator %d means integer, %g -float, %s-string
+camel = 42
+print ('I spotted %d camel' % camel)
+print ('I have % d camel and %g can score' % (camel, 0.34))
+print ('I have %d, %d, %d, shoes' %(14,15,19))
+
+#to parse string
+str = 'X-DSPAM-Confidence:0.8475'
+first_position = str.find(':')
+strs = str[first_position + 1:]
+print (float(strs))
+print (str)
+
+# the str was not actually replaced, it was initiated in a new variable and allowed to modify based on what was in str
+z = str.replace('X', 'Y')
+print (str)
+print (z)
