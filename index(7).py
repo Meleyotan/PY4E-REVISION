@@ -1,38 +1,36 @@
 #write into a new file
-file_name = input('Enter the file name: ')
 line1= 'My name is Meleyotan'
 line2= 'My name is also Daniel'
-fhand = open(file_name, 'w')
+fhand = open('file_name', 'w')
 fhand.write(line1)
 fhand.write(line2)
 
+#reading a file into a single variable
+inp = open('file_name', 'r')
+inp2 = inp.read()
+print (inp2) #this may not print because the memory resource is being used up by the write function above
+
 #continuosly write into a file, challenge: the newline character is not evaluating when I put it in a string response to input
 
-try:
-    line = " "
-    while True:
-        x = input("What do you like to write?")
+line = " "
+file_name5 = input("File name? ")
+while True:
+    x = input("What do you like to write?")
+    if x == 'done': break
+    try:
         x = str(x)
-        print(type (x))
-        fhand = open(file_name, 'w')
-        if x == 'done': break
+        fhand1 = open(file_name5, 'w')
         line = line + x
-        fhand.write(line)
-    fhand.close()
-except:
-    print ('File cannot be opened')
-    exit()
+        fhand1.write(line)
+    except:
+        print ('File cannot be opened')
+        exit()
 
-#reading a file into a single variable
-
-inp = fhand.read()
-print (len(inp))
-print (inp[:20])
 
 #count the number of lines that starts with "From"
-
+file_na = open('mbox-short.txt', 'r')
 count = 0
-for line in fhand:
+for line in file_na:
     if line.startswith("From"):
         line = line.strip()
         print (line)
@@ -40,7 +38,7 @@ for line in fhand:
 print ('The total of lines that starts with \'From\':', count)
 
 #find the lines with the '@uct.ac.za'
-for line in fhand:
+for line in file_na:
     line = line.strip()
     if line.find('@uct.ac.za') == -1:
         continue
