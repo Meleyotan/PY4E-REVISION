@@ -129,9 +129,3 @@ while True:
             print('Error, please enter a number')
 print('Max: %g, Min: %g' % (maximum, minimum))
 
-
-        
-            
-        
-
-
