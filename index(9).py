@@ -88,8 +88,13 @@ for x in list_dictionary:
 # count of each of the days of the week. At the end of the program print
 # out the contents of your dictionary (order does not matter).
 
+# Write a program to read through a mail log, build a his-
+# togram using a dictionary to count how many messages have come from
+# each email address, and print the dictionary.
+
 
 bigger_dict = {}
+email_dict ={}
 file_name3 = input('File name?')
 try:
     fhand3 = open(file_name3, 'r')
@@ -98,12 +103,21 @@ try:
             line = line.split()
             if len(line) > 2:
                 date = line[2]
+                email = line[1]
                 bigger_dict[date] = bigger_dict.get(date, 0) + 1
+                email_dict[email] = email_dict.get(email, 0) + 1
 except:
     print('Error! Input correct file name')
     quit()
+
+print (email_dict)
 
 convert_list = list(bigger_dict.keys())
 convert_list.sort()
 for y in convert_list:
     print (y, bigger_dict[y])
+
+
+
+
+
