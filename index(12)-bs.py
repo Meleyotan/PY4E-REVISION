@@ -12,6 +12,10 @@ url = input('Enter - ')
 html = urllib.request.urlopen(url, context=ctx).read()
 soup = BeautifulSoup(html, 'html.parser') #only line worth taking a closer look at
 
+#testing few BeautifulSoup method learnt on RealPython.com
+print(soup.find_all('p'))
+print(soup.get_text())
+
 # Retrieve all of the anchor tags
 tags = soup('a')
 for tag in tags:
